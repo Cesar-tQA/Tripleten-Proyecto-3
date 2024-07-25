@@ -1,0 +1,1611 @@
+<html
+        xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<title>Jira</title>
+<style type="text/css">
+table {
+    mso-displayed-decimal-separator:"\,";
+    mso-displayed-thousand-separator:"\.";
+}
+body
+{
+    margin: 0px;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    color:black;
+}
+
+</style>
+<META HTTP-EQUIV="Content-Type" Content="application/vnd.ms-excel; charset=UTF-8">
+<!-- JRA-7598 - ensure fields (e.g. description) occupy only one cell - even fields containing newlines. -->
+<!--
+Vertical align all cells to the top, in order to align all issue rows of issuetable to the top,
+since Excel does not use or save the css files it is hardcoded here.
+-->
+<style>
+@page
+{
+mso-page-orientation:landscape;
+margin:.25in .25in .5in .25in;
+mso-header-margin:.5in;
+mso-footer-margin:.25in;
+mso-footer-data:"&R&P of &N";
+mso-horizontal-page-align:center;
+mso-vertical-page-align:center;
+}
+
+td.issuekey,
+td.issuetype,
+td.status {
+    mso-style-parent: "";
+    mso-number-format: \@;
+    text-align: left;
+}
+br
+{
+    mso-data-placement:same-cell;
+}
+
+td
+{
+    vertical-align: top;
+}
+</style>
+
+<!--[if gte mso 9]><xml>
+<x:ExcelWorkbook>
+<x:ExcelWorksheets>
+<x:ExcelWorksheet>
+<x:Name>general_report</x:Name>
+<x:WorksheetOptions>
+<x:Print>
+<x:ValidPrinterInfo/>
+</x:Print>
+</x:WorksheetOptions>
+</x:ExcelWorksheet>
+</x:ExcelWorksheets>
+</x:ExcelWorkbook>
+</xml><![endif]-->
+</head>
+<body>
+
+<table border="1">
+    <tr bgcolor="#205081" height="30">
+        <td colspan="72">
+            <img src="https://qatripleten.atlassian.net/images/icon-jira-family-logo.png" width="57" height="30" border="0" alt="Jira">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="72">
+            <a href="https://qatripleten.atlassian.net/issues/?jql=project+%3D+%22PS5T%22+ORDER+BY+created+DESC">Jira</a>
+        </td>
+    </tr>
+    <tr>
+                <td colspan="72">
+            Mostrando <strong>10</strong> incidencias como en <strong>24/jul/24 8:51 PM</strong>.
+        </td>
+    </tr>
+</table>
+
+
+
+
+                                        <table id="issuetable" class="aui " border="1" cellpadding="3" cellspacing="1" width="100%">
+                        <thead>
+        <tr class="rowHeader">
+            
+                                                            <th class="colHeaderLink headerrow-project" data-id="project">
+                                                        Proyecto
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuekey" data-id="issuekey">
+                                                        Clave
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-summary" data-id="summary">
+                                                        Resumen
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuetype" data-id="issuetype">
+                                                        Tipo de Incidencia
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-status" data-id="status">
+                                                        Estado
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-priority" data-id="priority">
+                                                        Prioridad
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-resolution" data-id="resolution">
+                                                        Resolución
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-assignee" data-id="assignee">
+                                                        Persona asignada
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-reporter" data-id="reporter">
+                                                        Informador
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-creator" data-id="creator">
+                                                        Creador
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-created" data-id="created">
+                                                        Creada
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-lastViewed" data-id="lastViewed">
+                                                        Vista por Última Vez
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-updated" data-id="updated">
+                                                        Actualizada
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-resolutiondate" data-id="resolutiondate">
+                                                        Resuelta
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-versions" data-id="versions">
+                                                        Versiones afectadas
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-fixVersions" data-id="fixVersions">
+                                                        Versiones corregidas
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-components" data-id="components">
+                                                        Componentes
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-duedate" data-id="duedate">
+                                                        Fecha de vencimiento
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-votes" data-id="votes">
+                                                        Votos
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-watches" data-id="watches">
+                                                        Interesados
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-thumbnail" data-id="thumbnail">
+                                                        Imágenes
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-timeoriginalestimate" data-id="timeoriginalestimate">
+                                                        Estimación original
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-timeestimate" data-id="timeestimate">
+                                                        Estimación Restante
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-timespent" data-id="timespent">
+                                                        Tiempo Trabajado
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-workratio" data-id="workratio">
+                                                        Relación de trabajo
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-subtasks" data-id="subtasks">
+                                                        Subtareas
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuelinks" data-id="issuelinks">
+                                                        Incidencias Enlazadas
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-environment" data-id="environment">
+                                                        Entorno
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-description" data-id="description">
+                                                        Descripción
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-security" data-id="security">
+                                                        Nivel de Seguridad
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-progress" data-id="progress">
+                                                        Progreso
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregateprogress" data-id="aggregateprogress">
+                                                        Σ Progreso
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregatetimespent" data-id="aggregatetimespent">
+                                                        Σ Tiempo empleado
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregatetimeestimate" data-id="aggregatetimeestimate">
+                                                        Σ Estimación Restante
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregatetimeoriginalestimate" data-id="aggregatetimeoriginalestimate">
+                                                        Σ Estimación original
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-labels" data-id="labels">
+                                                        Etiquetas
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-statuscategorychangedate" data-id="statuscategorychangedate">
+                                                        Categoría de estado cambiada
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-statusCategory" data-id="statusCategory">
+                                                        Categoría de estado
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-parent" data-id="parent">
+                                                        Principal
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10009" data-id="customfield_10009">
+                                                        Actual end
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10008" data-id="customfield_10008">
+                                                        Actual start
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10003" data-id="customfield_10003">
+                                                        Approvers
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10007" data-id="customfield_10007">
+                                                        Change reason
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10006" data-id="customfield_10006">
+                                                        Change risk
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10005" data-id="customfield_10005">
+                                                        Change type
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10013" data-id="customfield_10013">
+                                                        Epic Color
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10014" data-id="customfield_10014">
+                                                            <span class="deprecated-searcher-icon" title="">
+                                    <div class="deprecated-tooltip table-deprecated-tooltip" role="tooltip" title="">
+                                        <p class="deprecated-tooltip-text table-deprecated-tooltip-text">
+                                            Epic Link se sustituirá pronto por el principal.
+                                        </p>
+                                    </div>
+                                </span>
+                                                        Epic Link
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10011" data-id="customfield_10011">
+                                                        Epic Name
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10012" data-id="customfield_10012">
+                                                        Epic Status
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10021" data-id="customfield_10021">
+                                                        Flagged
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10004" data-id="customfield_10004">
+                                                        Impact
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10017" data-id="customfield_10017">
+                                                        Issue color
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10026" data-id="customfield_10026">
+                                                        Formularios bloqueados
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10027" data-id="customfield_10027">
+                                                        Formularios abiertos
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10002" data-id="customfield_10002">
+                                                        Organizations
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10018" data-id="customfield_10018">
+                                                            <span class="deprecated-searcher-icon" title="">
+                                    <div class="deprecated-tooltip table-deprecated-tooltip" role="tooltip" title="">
+                                        <p class="deprecated-tooltip-text table-deprecated-tooltip-text">
+                                            Parent Link se sustituirá pronto por el principal.
+                                        </p>
+                                    </div>
+                                </span>
+                                                        Parent Link
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10034" data-id="customfield_10034">
+                                                        Project overview key
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10035" data-id="customfield_10035">
+                                                        Project overview status
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10019" data-id="customfield_10019">
+                                                        Rank
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10010" data-id="customfield_10010">
+                                                        Request Type
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10033" data-id="customfield_10033">
+                                                        Sentiment
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10020" data-id="customfield_10020">
+                                                        Sprint
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10015" data-id="customfield_10015">
+                                                        Start date
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10032" data-id="customfield_10032">
+                                                        Story Points
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10016" data-id="customfield_10016">
+                                                        Story point estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10028" data-id="customfield_10028">
+                                                        Formularios enviados
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10023" data-id="customfield_10023">
+                                                        Target end
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10022" data-id="customfield_10022">
+                                                        Target start
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10001" data-id="customfield_10001">
+                                                        Team
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10029" data-id="customfield_10029">
+                                                        Total de formularios
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10024" data-id="customfield_10024">
+                                                        [CHART] Date of First Response
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10000" data-id="customfield_10000">
+                                                        development
+                                                    </th>
+                                                                    </tr>
+    </thead>
+    <tbody>
+                    
+
+                <tr id="issuerow10081" rel="10081" data-issuekey="PS5T-10" class="issuerow">
+                                            <td class="project">    Proyecto Sprint 5 Tripleten
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="PS5T-10" href="https://qatripleten.atlassian.net/browse/PS5T-10">PS5T-10</a>
+</td>
+                                            <td class="summary"><p>
+                No es posible crear un nuevo pedido despues de finalizar uno previo.
+    </p>
+</td>
+                                            <td class="issuetype">    Error
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Tareas por hacer&lt;/span&gt;">Tareas por hacer</span>    </td>
+                                            <td class="priority">           Highest
+    </td>
+                                            <td class="resolution">    <em>Sin resolver</em>
+</td>
+                                            <td class="assignee">    <em>sin asignar</em>
+</td>
+                                            <td class="reporter">            critical58
+    </td>
+                                            <td class="creator">            critical58
+    </td>
+                                            <td class="created"> 25/jun/24 1:06 PM </td>
+                                            <td class="lastViewed"> 24/jul/24 8:51 PM </td>
+                                            <td class="updated"> 25/jun/24 1:06 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment">            APl 28 (Emulator - 5554) Android 9 - Honor
+    </td>
+                                            <td class="description">            1.- Se da click en “Pedir”<br/>
+<br/>
+2.- Se Da click en “Recibí pedido”<br/>
+<br/>
+3.- Se califica el pedido con un emoji<br/>
+<br/>
+Resultado Esperado: Aparece la ventana con la leyenda “Gracias!” y posteriormente se puede crear un nuevo pedido.<br/>
+<br/>
+Resultado obtenido: No ocurre ningun cambio despues de seleccionar un emoji.<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+!Grabación de pantalla 2024-06-21 005109.mp4|width=326,height=472,alt=&quot;Grabación de pantalla 2024-06-21 005109.mp4&quot;!
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 25/jun/24 1:06 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">Por hacer</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10019">      0|i000hz:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Ninguno
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10080" rel="10080" data-issuekey="PS5T-9" class="issuerow">
+                                            <td class="project">    Proyecto Sprint 5 Tripleten
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="PS5T-9" href="https://qatripleten.atlassian.net/browse/PS5T-9">PS5T-9</a>
+</td>
+                                            <td class="summary"><p>
+                Se reduce el espacio de los nombres de los productos al seleccionar cantidades grandes
+    </p>
+</td>
+                                            <td class="issuetype">    Error
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Tareas por hacer&lt;/span&gt;">Tareas por hacer</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    <em>Sin resolver</em>
+</td>
+                                            <td class="assignee">    <em>sin asignar</em>
+</td>
+                                            <td class="reporter">            critical58
+    </td>
+                                            <td class="creator">            critical58
+    </td>
+                                            <td class="created"> 21/jun/24 1:22 AM </td>
+                                            <td class="lastViewed"> 25/jun/24 12:21 AM </td>
+                                            <td class="updated"> 21/jun/24 1:22 AM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a aria-label="Seleccionar para descargar la imagen para PS5T-9" href="https://qatripleten.atlassian.net/secure/attachment/10066/Captura+de+pantalla+2024-06-21+012033.png">
+            Captura de pantalla 2024-06-21 012033.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment">            APl 28 (Emulator - 5554) Android 9 - Honor
+    </td>
+                                            <td class="description">            1.- Se inicia la aplicacion Urban. Lunch<br/>
+<br/>
+2.- Se selecciona “Enigma” <br/>
+<br/>
+3.- Se agregan 10 cantidades en 7 productos<br/>
+<br/>
+Resultado esperado: Es posible desplazarse hacia arriba y hacia abajo en la lista. Los iconos, contadores y las imágenes de los productos se mueven adecuadamente dentro de la pantalla.<br/>
+<br/>
+Resultado obtenido: Al llegar el contador a 10, espacio de los nombres de los productos se reduce y su lectura es mas difícil.<br/>
+<br/>
+<br/>
+<br/>
+!Captura de pantalla 2024-06-21 012033.png|width=270,height=356,alt=&quot;Captura de pantalla 2024-06-21 012033.png&quot;!
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 21/jun/24 1:22 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">Por hacer</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10019">      0|i000hr:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Ninguno
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10079" rel="10079" data-issuekey="PS5T-8" class="issuerow">
+                                            <td class="project">    Proyecto Sprint 5 Tripleten
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="PS5T-8" href="https://qatripleten.atlassian.net/browse/PS5T-8">PS5T-8</a>
+</td>
+                                            <td class="summary"><p>
+                No aparece la ventana de finalizacion de pedido
+    </p>
+</td>
+                                            <td class="issuetype">    Error
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Tareas por hacer&lt;/span&gt;">Tareas por hacer</span>    </td>
+                                            <td class="priority">           High
+    </td>
+                                            <td class="resolution">    <em>Sin resolver</em>
+</td>
+                                            <td class="assignee">    <em>sin asignar</em>
+</td>
+                                            <td class="reporter">            critical58
+    </td>
+                                            <td class="creator">            critical58
+    </td>
+                                            <td class="created"> 21/jun/24 1:14 AM </td>
+                                            <td class="lastViewed"> 25/jun/24 1:00 PM </td>
+                                            <td class="updated"> 21/jun/24 1:14 AM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a aria-label="Seleccionar para descargar la imagen para PS5T-8" href="https://qatripleten.atlassian.net/secure/attachment/10065/Captura+de+pantalla+2024-06-21+011308.png">
+            Captura de pantalla 2024-06-21 011308.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment">            APl 28 (Emulator - 5554) Android 9 - Honor
+    </td>
+                                            <td class="description">            1.- Despliega la lista de restaurantes<br/>
+<br/>
+2.- Se selecciona Enigma<br/>
+<br/>
+3.- Se da click en el boton de la flecha<br/>
+<br/>
+4.- Se selecciona “Budin chia con mango<br/>
+<br/>
+5.- Se da click en “Pedir” <br/>
+<br/>
+6.- Se Da click en “Recibi pedido”<br/>
+<br/>
+7.- Se califica el pedido con un emoji<br/>
+<br/>
+Resultado esperado: Se abre una nueva ventana con la ruta entre la ubicacion del usuario y el resutaurante, el icono del restaurante tiene una flecha en color blanco y el fondo interior en color verde. Hay un recuadro en la parte inferior con la leyenda &quot;\!Gracias\!&quot;<br/>
+<br/>
+Resultado obtenido: No ocurre ningún<br/>
+<br/>
+!Captura de pantalla 2024-06-21 011308.png|width=193,height=327,alt=&quot;Captura de pantalla 2024-06-21 011308.png&quot;!<br/>
+<br/>
+ cambio
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 21/jun/24 1:14 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">Por hacer</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10019">      0|i000hj:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Ninguno
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10078" rel="10078" data-issuekey="PS5T-7" class="issuerow">
+                                            <td class="project">    Proyecto Sprint 5 Tripleten
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="PS5T-7" href="https://qatripleten.atlassian.net/browse/PS5T-7">PS5T-7</a>
+</td>
+                                            <td class="summary"><p>
+                El mapa no se muestra de acuerdo a los requisitos al dar click en &quot;Pedir&quot; 
+    </p>
+</td>
+                                            <td class="issuetype">    Error
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Tareas por hacer&lt;/span&gt;">Tareas por hacer</span>    </td>
+                                            <td class="priority">           High
+    </td>
+                                            <td class="resolution">    <em>Sin resolver</em>
+</td>
+                                            <td class="assignee">    <em>sin asignar</em>
+</td>
+                                            <td class="reporter">            critical58
+    </td>
+                                            <td class="creator">            critical58
+    </td>
+                                            <td class="created"> 21/jun/24 1:02 AM </td>
+                                            <td class="lastViewed"> 25/jun/24 12:51 PM </td>
+                                            <td class="updated"> 21/jun/24 1:02 AM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a aria-label="Seleccionar para descargar la imagen para PS5T-7" href="https://qatripleten.atlassian.net/secure/attachment/10064/Captura+de+pantalla+2024-06-21+010108.png">
+            Captura de pantalla 2024-06-21 010108.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment">            APl 28 (Emulator - 5554) Android 9 - Honor
+    </td>
+                                            <td class="description">            1.- Despliega la lista de restaurantes<br/>
+<br/>
+2.- Se selecciona Enigma<br/>
+<br/>
+3.- Se da click en el boton de la flecha<br/>
+<br/>
+4.- Se selecciona “Budin chia con mango<br/>
+<br/>
+5.- Se da click en “Pedir” <br/>
+<br/>
+Resultado esperado: Se abre una nueva ventana con la ruta entre la ubicacion del usuario y el resutaurante, el icono del restaurante tiene una flecha en color blanco y el fondo interior en color verde. En el recuadro de pie de pagina se encuentra un icono en color verde con paloma blanca un aviso en fuente de color verde &quot;!El pedido ha sido enviado!&quot; los datos de la direccion del remitente, el boton &quot;Recibir el pedido&quot; en color morado con las letras en negritas.<br/>
+<br/>
+Resultado obtenido: Se abre una nueva ventana con un mapa distribuido adecuadamente, no hay una ruta entre el restaurante y el usuario de acuerdo a los requisitos. <br/>
+<br/>
+<br/>
+<br/>
+!Captura de pantalla 2024-06-21 010108.png|width=188,height=325,alt=&quot;Captura de pantalla 2024-06-21 010108.png&quot;!
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 21/jun/24 1:02 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">Por hacer</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10019">      0|i000hb:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Ninguno
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10077" rel="10077" data-issuekey="PS5T-6" class="issuerow">
+                                            <td class="project">    Proyecto Sprint 5 Tripleten
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="PS5T-6" href="https://qatripleten.atlassian.net/browse/PS5T-6">PS5T-6</a>
+</td>
+                                            <td class="summary"><p>
+                No aparece la ventana de finalizacion de pedido con la leyenda &quot;Gracias&quot;
+    </p>
+</td>
+                                            <td class="issuetype">    Error
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Tareas por hacer&lt;/span&gt;">Tareas por hacer</span>    </td>
+                                            <td class="priority">           High
+    </td>
+                                            <td class="resolution">    <em>Sin resolver</em>
+</td>
+                                            <td class="assignee">    <em>sin asignar</em>
+</td>
+                                            <td class="reporter">            critical58
+    </td>
+                                            <td class="creator">            critical58
+    </td>
+                                            <td class="created"> 21/jun/24 12:54 AM </td>
+                                            <td class="lastViewed"> 21/jun/24 12:57 AM </td>
+                                            <td class="updated"> 21/jun/24 12:54 AM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment">            APl 28 (Emulator - 5554) Android 9 - Honor
+    </td>
+                                            <td class="description">            1.- Despliega la lista de restaurantes<br/>
+<br/>
+2.- Se selecciona Enigma<br/>
+<br/>
+3.- Se da click en el boton de la flecha<br/>
+<br/>
+4.- Se selecciona “Budin chia con mango<br/>
+<br/>
+5.- Se da click en “Pedir” <br/>
+<br/>
+6.- Se agota el tiempo de espera<br/>
+<br/>
+7.- Se da click en “Recibi pedido”<br/>
+<br/>
+8.- Se califica el pedido con un emoji<br/>
+<br/>
+Resultado esperado: Aparece una nueva venta de finalización.<br/>
+<br/>
+Resultado obtenido: No ocurre ningún cambio<br/>
+<br/>
+!Grabación de pantalla 2024-06-21 005109.mp4|width=326,height=472,alt=&quot;Grabación de pantalla 2024-06-21 005109.mp4&quot;!
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 21/jun/24 12:54 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">Por hacer</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10019">      0|i000h3:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Ninguno
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10076" rel="10076" data-issuekey="PS5T-5" class="issuerow">
+                                            <td class="project">    Proyecto Sprint 5 Tripleten
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="PS5T-5" href="https://qatripleten.atlassian.net/browse/PS5T-5">PS5T-5</a>
+</td>
+                                            <td class="summary"><p>
+                La imagen del producto seleccionado, no es la que se debe mostrar de acuerdo a los requisitos
+    </p>
+</td>
+                                            <td class="issuetype">    Error
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Tareas por hacer&lt;/span&gt;">Tareas por hacer</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    <em>Sin resolver</em>
+</td>
+                                            <td class="assignee">    <em>sin asignar</em>
+</td>
+                                            <td class="reporter">            critical58
+    </td>
+                                            <td class="creator">            critical58
+    </td>
+                                            <td class="created"> 21/jun/24 12:39 AM </td>
+                                            <td class="lastViewed"> 24/jun/24 11:48 PM </td>
+                                            <td class="updated"> 21/jun/24 12:39 AM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a aria-label="Seleccionar para descargar la imagen para PS5T-5" href="https://qatripleten.atlassian.net/secure/attachment/10062/Captura+de+pantalla+2024-06-21+003740.png">
+            Captura de pantalla 2024-06-21 003740.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment">            APl 28 (Emulator - 5554) Android 9 - Honor
+    </td>
+                                            <td class="description">            1.- Despliega la lista de restaurantes<br/>
+<br/>
+2.- Se selecciona Enigma<br/>
+<br/>
+3.- Se da click en el boton de la flecha<br/>
+<br/>
+4.- Se selecciona “Budin chia con mango<br/>
+<br/>
+Resultado esperado: Se abre una nueva ventana que contiene la informacion del pedido: Budin de chia con mango (1) el importe (15) en donde se encontraba la flecha, aparece el boton &quot;Pedir&quot; en color morado y la palabra en negritas el paso 1 y 2 estan en color verde con una paloma en blanco.<br/>
+<br/>
+Resultado Obtenido: La imagen que aparece no es de acuerdo a la imagen de los requisitos.<br/>
+<br/>
+<br/>
+<br/>
+!Captura de pantalla 2024-06-21 003740.png|width=231,height=325,alt=&quot;Captura de pantalla 2024-06-21 003740.png&quot;!
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 21/jun/24 12:39 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">Por hacer</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10019">      0|i000gv:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Ninguno
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10075" rel="10075" data-issuekey="PS5T-4" class="issuerow">
+                                            <td class="project">    Proyecto Sprint 5 Tripleten
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="PS5T-4" href="https://qatripleten.atlassian.net/browse/PS5T-4">PS5T-4</a>
+</td>
+                                            <td class="summary"><p>
+                No aparece el icono Mirrors para seleccionarlo en el mapa
+    </p>
+</td>
+                                            <td class="issuetype">    Error
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Tareas por hacer&lt;/span&gt;">Tareas por hacer</span>    </td>
+                                            <td class="priority">           High
+    </td>
+                                            <td class="resolution">    <em>Sin resolver</em>
+</td>
+                                            <td class="assignee">    <em>sin asignar</em>
+</td>
+                                            <td class="reporter">            critical58
+    </td>
+                                            <td class="creator">            critical58
+    </td>
+                                            <td class="created"> 21/jun/24 12:24 AM </td>
+                                            <td class="lastViewed"> 21/jun/24 12:36 AM </td>
+                                            <td class="updated"> 21/jun/24 12:24 AM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment">            APl 28 (Emulator - 5554) Android 9 - Honor
+    </td>
+                                            <td class="description">            1.- Despliega la lista de restaurantes<br/>
+<br/>
+2.- Se selecciona Enigma<br/>
+<br/>
+3.- Se busca mirrors para seleccionarse<br/>
+<br/>
+Resultado esperado: El punto &quot;Enigma&quot; cambia a apariencia original y &quot;Mirrors&quot; se torna negro<br/>
+<br/>
+Resultado obtenido: No es posible seleccionar Mirrors.<br/>
+<br/>
+<br/>
+<br/>
+!Grabación de pantalla 2024-06-21 001657.mp4|width=368,height=512,alt=&quot;Grabación de pantalla 2024-06-21 001657.mp4&quot;!
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 21/jun/24 12:24 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">Por hacer</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10019">      0|i000gn:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Ninguno
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10074" rel="10074" data-issuekey="PS5T-3" class="issuerow">
+                                            <td class="project">    Proyecto Sprint 5 Tripleten
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="PS5T-3" href="https://qatripleten.atlassian.net/browse/PS5T-3">PS5T-3</a>
+</td>
+                                            <td class="summary"><p>
+                No se visualizan los puntos de venta y la ubicacion actual del usuario en el mapa al iniciar la aplicacion 
+    </p>
+</td>
+                                            <td class="issuetype">    Error
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Tareas por hacer&lt;/span&gt;">Tareas por hacer</span>    </td>
+                                            <td class="priority">           High
+    </td>
+                                            <td class="resolution">    <em>Sin resolver</em>
+</td>
+                                            <td class="assignee">    <em>sin asignar</em>
+</td>
+                                            <td class="reporter">            critical58
+    </td>
+                                            <td class="creator">            critical58
+    </td>
+                                            <td class="created"> 21/jun/24 12:05 AM </td>
+                                            <td class="lastViewed"> 24/jun/24 11:27 PM </td>
+                                            <td class="updated"> 21/jun/24 12:05 AM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment">            APl 28 (Emulator - 5554) Android 9 - Honor
+    </td>
+                                            <td class="description">            Se inicia el emulador de Android para dispositivo en Android Studio <br/>
+<br/>
+1.- Se instala la aplicación<br/>
+<br/>
+2.- Se inicia la aplicación<br/>
+<br/>
+Resultado esperado: Aparece el mapa con las ubicaciones del usuario en color verde y los restaurantes en color rojo, así como los relieves, debajo se observa el recuadro de avance de pedido.<br/>
+<br/>
+Resultado obtenido: Unicamente aparece el recuadro de avance de pedido con el boton “Elige restaurante”.<br/>
+<br/>
+<br/>
+<br/>
+!Grabación de pantalla 2024-06-21 000353.mp4|width=376,height=522,alt=&quot;Grabación de pantalla 2024-06-21 000353.mp4&quot;!
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 21/jun/24 12:05 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">Por hacer</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10019">      0|i000gf:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Ninguno
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10073" rel="10073" data-issuekey="PS5T-2" class="issuerow">
+                                            <td class="project">    Proyecto Sprint 5 Tripleten
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="PS5T-2" href="https://qatripleten.atlassian.net/browse/PS5T-2">PS5T-2</a>
+</td>
+                                            <td class="summary"><p>
+                No se observan los puntos de venta y la ubicacion actual del usuario se muestran adecuadamente en proporcion de las medidas de pantalla
+    </p>
+</td>
+                                            <td class="issuetype">    Error
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Tareas por hacer&lt;/span&gt;">Tareas por hacer</span>    </td>
+                                            <td class="priority">           High
+    </td>
+                                            <td class="resolution">    <em>Sin resolver</em>
+</td>
+                                            <td class="assignee">    <em>sin asignar</em>
+</td>
+                                            <td class="reporter">            critical58
+    </td>
+                                            <td class="creator">            critical58
+    </td>
+                                            <td class="created"> 20/jun/24 11:56 PM </td>
+                                            <td class="lastViewed"> 24/jun/24 11:28 PM </td>
+                                            <td class="updated"> 20/jun/24 11:56 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment">            APl 28 (Emulator - 5554) Android 9 - Honor
+    </td>
+                                            <td class="description">            Se inicia el emulador de Android para dispositivo en Android Studio <br/>
+<br/>
+1.- Se instala la aplicación<br/>
+<br/>
+2.- Se inicia la aplicación<br/>
+<br/>
+Resultado esperado: Aparece el mapa con las ubicaciones del usuario en color verde y los restaurantes en color rojo, asi como los relieves, debajo se observa el recuadro de avance de pedido.<br/>
+<br/>
+Resultado obtenido: 80% de la pantalla en blanco, con el recuadro de avance de pedido.<br/>
+<br/>
+<br/>
+<br/>
+!Grabación de pantalla 2024-06-20 234616.mp4|width=362,height=482,alt=&quot;Grabación de pantalla 2024-06-20 234616.mp4&quot;!
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 20/jun/24 11:56 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">Por hacer</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10019">      0|i000g7:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Ninguno
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10072" rel="10072" data-issuekey="PS5T-1" class="issuerow">
+                                            <td class="project">    Proyecto Sprint 5 Tripleten
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="PS5T-1" href="https://qatripleten.atlassian.net/browse/PS5T-1">PS5T-1</a>
+</td>
+                                            <td class="summary"><p>
+                No se visualizan se observan los puntos de venta y la ubicacion actual del usuario al iniciar la aplicacion
+    </p>
+</td>
+                                            <td class="issuetype">    Error
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Tareas por hacer&lt;/span&gt;">Tareas por hacer</span>    </td>
+                                            <td class="priority">           High
+    </td>
+                                            <td class="resolution">    <em>Sin resolver</em>
+</td>
+                                            <td class="assignee">    <em>sin asignar</em>
+</td>
+                                            <td class="reporter">            critical58
+    </td>
+                                            <td class="creator">            critical58
+    </td>
+                                            <td class="created"> 20/jun/24 11:49 PM </td>
+                                            <td class="lastViewed"> 24/jun/24 11:27 PM </td>
+                                            <td class="updated"> 20/jun/24 11:49 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment">            APl 28 (Emulator - 5554) Android 9 - Honor
+    </td>
+                                            <td class="description">            Se inicia el emulador de Android para dispositivo en Android Studio <br/>
+<br/>
+1.- Se instala la aplicación<br/>
+<br/>
+2.- Se inicia la aplicación<br/>
+<br/>
+Resultado esperado: Aparece el mapa con las ubicaciones del usuario y los restaurantes así<br/>
+<br/>
+ como el recuadro de avance de pedido.<br/>
+<br/>
+Resultado obtenido: 80% de la pantalla en blanco, con el recuadro de avance de pedido.<br/>
+<br/>
+<br/>
+<br/>
+!Grabación de pantalla 2024-06-20 234616.mp4|width=362,height=482,alt=&quot;Grabación de pantalla 2024-06-20 234616.mp4&quot;!
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 20/jun/24 11:49 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">Por hacer</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10019">      0|i000fz:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Ninguno
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+        </tbody>
+    </table>
+    <div class="end-of-stable-message"></div>
+            <table border="1" >
+<tr>
+    <td bgcolor="#dddddd" colspan="72"><font size="1">
+        Generado a las Thu Jul 25 02:51:30 UTC 2024 por critical58 usando JIRA 1001.0.0-SNAPSHOT#100259-rev:526ca62d0e2def526173eaa446a363e48cb37b9f.
+    </font></td>
+</tr>
+</table>
+
+</body>
+</html>
